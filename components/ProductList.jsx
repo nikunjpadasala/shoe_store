@@ -1,7 +1,7 @@
 import styles from "../styles/ProductList.module.css";
 import ProductCard from "./ProductCard";
 
-const ProductList = () => {
+const ProductList = ({ productList }) => {
     return (
       <div className={styles.container}>
         <h1 className={styles.title}>THE BEST FOOTWEAR IN TOWN</h1>
@@ -10,14 +10,9 @@ const ProductList = () => {
         જ્યારે તમારા પગરખાંમાં ન હોય તેવા લોકો તમારા પ્રત્યે સહાનુભૂતિ ધરાવે છે.
         </p>
         <div className={styles.wrapper}>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
+          {productList.map((shoe) => (
+            <ProductCard key={shoe._id} shoe={shoe} />
+          ))}
         </div>
       </div>
     );

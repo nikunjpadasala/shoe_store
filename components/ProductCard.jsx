@@ -1,14 +1,17 @@
 import Image from "next/image";
 import styles from "../styles/ProductCard.module.css";
+import Link from "next/link";
 
-const ProductCard = () => {
+const ProductCard = ({ shoe }) => {
   return (
     <div className={styles.container}>
-      <Image src="/img/shoe1.jpg" alt="" width="500" height="500" />
-      <h1 className={styles.title}>ADDIDAS YEEZY</h1>
-      <span className={styles.price}>12,999₹</span>
+      <Link href={`/product/${shoe._id}`} passHref>
+        <Image src={shoe.img} alt="" width="500" height="500" />
+      </Link>
+      <h1 className={styles.title}>{shoe.title}</h1>
+      <span className={styles.price}>₹{shoe.prices[0]}</span>
       <p className={styles.desc}>
-      high-end limited edition colorways and general releases offered by the Yeezy Boost sneakers lineup
+      {shoe.desc}
       </p>
     </div>
   );
