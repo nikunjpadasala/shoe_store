@@ -18,10 +18,10 @@ const Navbar = () => {
         <ul className={styles.list}>
           <li className={styles.listItem}>Homepage</li>
           <li className={styles.listItem}>Products</li>
-          <li className={styles.listItem}>Menu</li>
+          <li className={styles.listItem}></li>
           <Image src="/img/logo1.png" alt="" width="100px" height="69px" />
-          <li className={styles.listItem}>Events</li>
-          <li className={styles.listItem}>Blog</li>
+          <li className={styles.listItem}>Menu</li>
+          <li className={styles.listItem}></li>
           <li className={styles.listItem}>Contact</li>
         </ul>
       </div>

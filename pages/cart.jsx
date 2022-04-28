@@ -74,6 +74,7 @@ const Cart = () => {
               </td>
             </tr>
             </tbody>
+            
           </table>
         </div>
         <div className={styles.right}>
