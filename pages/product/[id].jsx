@@ -2,6 +2,9 @@ import styles from "../../styles/Product.module.css"
 import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/cartSlice";
+
 
 
 const Product = ({shoe}) => {
@@ -9,6 +12,7 @@ const Product = ({shoe}) => {
    const [size, setSize] = useState(0);
    const [quantity, setQuantity] = useState(1);
    const [extras, setExtras] = useState([]);
+   const dispatch = useDispatch();
 
    const changePrice = (number) => {
      setPrice(price + number);
@@ -31,6 +35,10 @@ const Product = ({shoe}) => {
        setExtras(extras.filter((extra) => extra._id !== option._id));
      }
    };
+
+      const handleClick = () => {
+        dispatch(addProduct({...shoe, extras, price, quantity}));
+      };
   
       return (
         <div className={styles.container}>
@@ -79,7 +87,7 @@ const Product = ({shoe}) => {
             </div>
             <div className={styles.add}>
                 <input onChange={(e) => setQuantity(e.target.value)} type="number" defaultValue={1} className={styles.quantity}/>
-                <button className={styles.button}>Add to Cart</button>
+                <button className={styles.button} onClick={handleClick}>Add to Cart</button>
             </div>
           </div>
         </div>
